@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/10 11:28:52 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/10 13:28:01 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_map	map;
+	t_list	*new;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new)
+	{
+		new->content = content;
+		new->next = NULL;
+	}
+	return (new);
 }

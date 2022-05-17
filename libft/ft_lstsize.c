@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/10 13:18:34 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/10 13:28:07 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-	t_map	map;
+	int	count;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	count = 0;
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }

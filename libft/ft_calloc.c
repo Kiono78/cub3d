@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/06 11:02:55 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/09 14:08:48 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_map	map;
+	void	*output;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	output = (void *)malloc(nmemb * size);
+	if (output == NULL)
+		return (NULL);
+	ft_bzero(output, nmemb * size);
+	return (output);
 }

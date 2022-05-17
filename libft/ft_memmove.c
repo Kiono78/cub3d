@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/03 09:06:29 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/09 11:09:11 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_map	map;
+	unsigned char		*d;
+	unsigned char		*s;
+	size_t				i;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	s = (unsigned char *)src;
+	d = (unsigned char *)dest;
+	if (!d && !s)
+		return (NULL);
+	if (dest > src)
+	{
+		i = n;
+		while (i--)
+			d[i] = s[i];
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (d);
 }

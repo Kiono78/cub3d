@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/03 09:04:51 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/05 17:27:59 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_bzero(void *str, size_t n)
 {
-	t_map	map;
+	unsigned char	*ptr;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	ptr = (unsigned char *)str;
+	while (n)
+	{
+		*ptr = '\0';
+		ptr++;
+		n--;
+	}
 }

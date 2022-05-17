@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/10 15:19:58 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/15 14:41:20 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_map	map;
+	t_list	*next_node;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	if (lst)
+	{
+		while (*lst)
+		{
+			next_node = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = next_node;
+		}
+	}
+	*lst = NULL;
 }

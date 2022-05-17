@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/03 09:05:34 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/14 10:57:51 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memchr( const void *src, int c, size_t n)
 {
-	t_map	map;
+	unsigned char	*s;
+	unsigned char	chara;
+	unsigned int	i;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	s = (unsigned char *)src;
+	chara = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (*(s + i) == chara)
+			return ((void *)(s + i));
+		i++;
+	}
+	return (NULL);
 }

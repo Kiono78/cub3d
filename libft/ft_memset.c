@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/03 09:07:02 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/09 09:47:21 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	t_map	map;
+	unsigned char	*ptr;
+	size_t			i;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	ptr = (unsigned char *)str;
+	i = 0;
+	while (n)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+		n--;
+	}
+	return (ptr);
 }

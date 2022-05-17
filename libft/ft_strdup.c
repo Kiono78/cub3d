@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2021/11/06 11:46:45 by bterral           #+#    #+#             */
+/*   Updated: 2021/11/16 10:38:52 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_map	map;
+	char	*output;
+	size_t	i;
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
+	output = (char *)malloc(sizeof(*output) * (ft_strlen(s) + 1));
+	if (output == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		output[i] = s[i];
+		i++;
+	}
+	output[i] = '\0';
+	return (output);
 }

@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 13:34:01 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/17 15:59:32 by bterral          ###   ########.fr       */
+/*   Created: 2022/05/17 14:31:26 by bterral           #+#    #+#             */
+/*   Updated: 2022/05/17 16:04:40 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/cub3d.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int main(int argc, char **argv)
-{
-	t_map	map;
+# include "../srcs/parsing/parsing.h"
 
-	if (parsing(argc, argv, &map))
-		return (1);
-	return (0);
-}
+
+
+#endif
