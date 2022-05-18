@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:52:13 by bterral           #+#    #+#             */
-/*   Updated: 2022/04/26 16:07:53 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/18 11:03:05 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /// ADDED FOR MINISHELL ///
 
-char		**ft_split_piscine(char *str, char *charset);
+char		**ft_split_piscine(const char *s, char *charset);
 int			ft_size_split(char *str, char *charset, int index);
 int			ft_strcmp(const char *str1, const char *str2);
 
