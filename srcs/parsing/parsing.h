@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:02:31 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 10:47:36 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 16:19:57 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_map
 	int		f_bool;
 	t_rgb	floor;
 	char	**map;
+	int		y;
 }	t_map;
 
 /// parsing.c ///
@@ -56,5 +57,8 @@ int		is_rgb_valid(char **split, int *boolean, t_rgb *rgb);
 int		rgb_comma_check(char *str, int *boolean, t_rgb *rgb);
 int		rgb_value_check(char *str, int *boolean, t_rgb *rgb);
 int		rgb_atoi_value(char *str, int start, int len, int *boolean);
+
+/// parse_map.c ///
+int	parse_map(int fd, t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 09:59:55 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 11:11:27 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 13:55:12 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ int	rgb_value_check(char *str, int *boolean, t_rgb *rgb)
 				rgb->red = rgb_atoi_value(str, j, i - j, boolean);
 			else if (!rgb->green)
 				rgb->green = rgb_atoi_value(str, j, i - j, boolean);
-			else if (!rgb->green)
-				rgb->blue = rgb_atoi_value(str, j, i - j, boolean);
 			if (*boolean == 2)
 				return (1);
 			j = (i + 1);
 		}
 		i++;
 	}
-	*boolean = 1;
+	rgb->blue = rgb_atoi_value(str, j, i - j, boolean);
+	if (!*boolean)
+		*boolean = 1;
 	return (0);
 }
 

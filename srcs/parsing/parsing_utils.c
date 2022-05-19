@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:38:44 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 11:27:30 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 16:19:55 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	initialize_texture(t_map *map)
 	map->floor.red = 0;
 	map->floor.green = 0;
 	map->floor.blue = 0;
+	map->y = 0;
 }
 
 int	are_info_missing(t_map *map)
