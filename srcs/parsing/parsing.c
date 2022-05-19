@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 13:59:12 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/18 17:30:28 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:25:35 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	print_error(int code, char *str)
 		ft_dprintf(2, "%s: bad texture code\n", str);
 	else if (code == 4)
 		ft_dprintf(2, "%s: bad texture value\n", str);
+	else if (code == 5)
+		ft_dprintf(2, "%s: not a valid rgb format, two comma.\n", str);
+	else if (code == 6)
+		ft_dprintf(2, "%s: not a valid rgb format, digits.\n", str);
+	else if (code == 7)
+		ft_dprintf(2, "%s: not a valid rgb format, value.\n", str);
 	return (1);
 }
 
@@ -42,7 +48,8 @@ int read_texture(int fd, t_map *map)
 			if (is_valid_identifier(split[0]))
 				return (print_error(3, split[0]));
 			if (is_valid_value(split, map))
-				return (print_error(4, split[1]));
+				// return (print_error(4, split[1]));
+				return (1);
 		}
 		free(split);
 		split = split_spaces(get_next_line(fd));

@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:38:44 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/18 17:54:26 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:27:30 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	is_valid_identifier(char *str)
 int open_file(char *file_name, char **struct_str)
 {
 	if (open(file_name, O_RDONLY) == -1)
-		return (1);
+		return (print_error(2, file_name));
 	else
 	{
 		(*struct_str) = ft_strdup(file_name);
@@ -60,55 +60,6 @@ int open_file(char *file_name, char **struct_str)
 			return (1);
 		return (0);
 	}
-}
-
-int	rgb_value_check(char *str, int *boolean, t_rgb *rgb)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		
-		i++;
-	}
-}
-
-int	rgb_comma_check(char *str, int *boolean, t_rgb *rgb)
-{
-	int	i;
-	int	count_comma;
-
-	i = 0;
-	count_comma = 0;
-	while (str[i])
-	{
-		if (str[i] == ',')
-			count_comma++;
-		i++;
-	}
-	if (count_comma != 2)
-		return (1);
-	rgb_value_check(str, boolean, rgb);
-}
-
-int	is_rgb_valid(char **split, int *boolean, t_rgb *rgb)
-{
-	char	*concat;
-	char	*tmp;
-	int		i;
-
-	concat = split[0];
-	i = 1;
-	while (split[i])
-	{
-		tmp = ft_strjoin(concat, split[i]);
-		free(concat);
-		concat = tmp;
-		i++;
-	}
-	rgb_format_check(concat, boolean, rgb);
-	return (0);
 }
 
 int is_valid_value(char **split, t_map *map)

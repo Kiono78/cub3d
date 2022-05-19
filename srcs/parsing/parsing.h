@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:02:31 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/18 16:54:18 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/19 10:47:36 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int		is_valid_identifier(char *str);
 int		is_valid_value(char **split, t_map *map);
 int		open_file(char *file_name, char **struct_str);
 int		are_info_missing(t_map *map);
-int		is_rgb_valid(char **split, int *bool, t_rgb *rgb);
+
+
+/// rgb_check.c ///
+int		is_rgb_valid(char **split, int *boolean, t_rgb *rgb);
+int		rgb_comma_check(char *str, int *boolean, t_rgb *rgb);
+int		rgb_value_check(char *str, int *boolean, t_rgb *rgb);
+int		rgb_atoi_value(char *str, int start, int len, int *boolean);
 
 #endif

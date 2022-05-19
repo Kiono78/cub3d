@@ -6,7 +6,7 @@
 #    By: bterral <bterral@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 14:05:19 by bterral           #+#    #+#              #
-#    Updated: 2022/05/18 11:42:35 by bterral          ###   ########.fr        #
+#    Updated: 2022/05/19 10:46:15 by bterral          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INCLUDES_D		= ./includes
 
 SRC				= main.c
 
-SRC_PARSING_F	= parsing.c parsing_utils.c
+SRC_PARSING_F	= parsing.c parsing_utils.c rgb_check.c
 
 SRC_PARSING_D	= srcs/parsing/
 
