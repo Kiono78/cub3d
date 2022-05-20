@@ -6,13 +6,11 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 13:59:12 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 16:52:21 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/20 11:07:46 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-
-
 
 int read_texture(int fd, t_map *map)
 {

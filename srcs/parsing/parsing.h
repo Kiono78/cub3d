@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:02:31 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 16:19:57 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/20 11:24:32 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ int		rgb_value_check(char *str, int *boolean, t_rgb *rgb);
 int		rgb_atoi_value(char *str, int start, int len, int *boolean);
 
 /// parse_map.c ///
-int	parse_map(int fd, t_map *map);
+int		parse_map(int fd, t_map *map);
+
+/// map_consistency.c ///
+int		check_left(t_map *map, int x, int y);
+int		check_right(t_map *map, int x, int y);
+int		check_up(t_map *map, int x, int y);
+int		check_down(t_map *map, int x, int y);
 
 #endif

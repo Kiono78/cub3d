@@ -6,7 +6,7 @@
 #    By: bterral <bterral@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 14:05:19 by bterral           #+#    #+#              #
-#    Updated: 2022/05/19 13:41:26 by bterral          ###   ########.fr        #
+#    Updated: 2022/05/20 11:26:43 by bterral          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ INCLUDES_D		= ./includes
 
 SRC				= main.c
 
-SRC_PARSING_F	= parsing.c parsing_utils.c rgb_check.c parse_map.c
+SRC_PARSING_F	= parsing.c parsing_utils.c rgb_check.c parse_map.c \
+					error.c map_consistency.c
 
 SRC_PARSING_D	= srcs/parsing/
 
@@ -34,9 +35,9 @@ OBJS			= $(SRC:.c=.o) $(SRC_PARSING:.c=.o)
 
 LIBFT			= ./libft/libft.a
 
-all: $(NAME) 
+all: libft $(NAME)
 
-$(NAME): libft $(OBJS) Makefile
+$(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(FFLAGS) -I $(INCLUDES_D) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c $(HEADER)

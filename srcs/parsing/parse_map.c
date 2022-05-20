@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:38:48 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 16:53:12 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/20 11:50:03 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,6 @@ char	*add_line_to_map(char *line, char *map)
 	return (map);
 }
 
-// int	parse_map(int fd, t_map *map)
-// {
-// 	char	**line;
-// 	int		i;
-
-// 	i = 0;
-// 	line = ft_split(get_next_line(fd), '\n');
-// 	if (check_full_walls(line[0]))
-// 	{
-// 		free(line);
-// 		return (print_error(9, NULL));
-// 	}
-// 	while (line[0] && line[0][0] != '\n')
-// 	{
-// 		i++;
-// 		line = ft_split(get_next_line(fd), '\n');
-// 	}
-// 	return (0);
-// }
-
 int	map_size(t_map *map)
 {
 	int	i;
@@ -66,6 +46,56 @@ int	map_size(t_map *map)
 	while (map->map[i])
 		i++;
 	return (i);
+}
+
+int check_map_closed(t_map *map, int x, int y)
+{
+	if (check_left(map, x, y))
+	{
+		printf("left x: %d - y: %d\n", x, y);
+		return (1);
+	}
+	if (check_right(map, x, y))
+	{
+		printf("right x: %d - y: %d\n", x, y);
+		return (1);
+	}
+	if (check_up(map, x, y))
+	{
+		printf("up x: %d - y: %d\n", x, y);
+		return (1);
+	}
+	if (check_down(map, x, y))
+	{
+		printf("down x: %d - y: %d\n", x, y);
+		return (1);
+	}
+	return (0);
+}
+
+int	check_map_consistency(t_map *map)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (j < map->y)
+	{
+		i = 0;
+		while ((map->map[j][i]))
+		{
+			if (map->map[j][i] == '0' || map->map[j][i] == 'N' ||
+				map->map[j][i] == 'S' || map->map[j][i] == 'W' ||
+				map->map[j][i] == 'E')
+			{
+				if (check_map_closed(map, i, j))
+					return (1);
+			}
+			i++;
+		}
+		j++;
+	}
+	return (0);
 }
 
 int	parse_map(int fd, t_map *map)
@@ -84,5 +114,7 @@ int	parse_map(int fd, t_map *map)
 	map->y = map_size(map);
 	if (check_full_walls(map->map[0]) || check_full_walls(map->map[map->y - 1]))
 		return (print_error(8, NULL));
+	if (check_map_consistency(map))
+		return (print_error(9, NULL));
 	return (0);
 }
