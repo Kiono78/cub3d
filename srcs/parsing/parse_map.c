@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:38:48 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/20 11:50:03 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/23 11:29:07 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,22 @@ int check_map_closed(t_map *map, int x, int y)
 {
 	if (check_left(map, x, y))
 	{
-		printf("left x: %d - y: %d\n", x, y);
+		printf("checking left x: %d - y: %d\n", x, y);
 		return (1);
 	}
 	if (check_right(map, x, y))
 	{
-		printf("right x: %d - y: %d\n", x, y);
+		printf("checking right x: %d - y: %d\n", x, y);
 		return (1);
 	}
 	if (check_up(map, x, y))
 	{
-		printf("up x: %d - y: %d\n", x, y);
+		printf("checking up x: %d - y: %d\n", x, y);
 		return (1);
 	}
 	if (check_down(map, x, y))
 	{
-		printf("down x: %d - y: %d\n", x, y);
+		printf("checking down x: %d - y: %d\n", x, y);
 		return (1);
 	}
 	return (0);
@@ -77,24 +77,29 @@ int	check_map_consistency(t_map *map)
 {
 	int	i;
 	int	j;
+	int	player;
 
 	j = 0;
+	player = 0;
 	while (j < map->y)
 	{
 		i = 0;
 		while ((map->map[j][i]))
 		{
-			if (map->map[j][i] == '0' || map->map[j][i] == 'N' ||
-				map->map[j][i] == 'S' || map->map[j][i] == 'W' ||
-				map->map[j][i] == 'E')
+			if (map->map[j][i] != '1' && map->map[j][i] != ' ')
 			{
+				if (map->map[j][i] == 'N' || map->map[j][i] == 'S' ||
+					map->map[j][i] == 'W' || map->map[j][i] == 'E')
+					player++;					
 				if (check_map_closed(map, i, j))
-					return (1);
+					return (print_error(9, NULL));
 			}
 			i++;
 		}
 		j++;
 	}
+	if (player != 1)
+		return (print_error(10, NULL));
 	return (0);
 }
 
@@ -115,6 +120,6 @@ int	parse_map(int fd, t_map *map)
 	if (check_full_walls(map->map[0]) || check_full_walls(map->map[map->y - 1]))
 		return (print_error(8, NULL));
 	if (check_map_consistency(map))
-		return (print_error(9, NULL));
+		return (1);
 	return (0);
 }

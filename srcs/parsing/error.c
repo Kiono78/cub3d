@@ -6,7 +6,7 @@
 /*   By: bterral <bterral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:51:51 by bterral           #+#    #+#             */
-/*   Updated: 2022/05/19 16:53:31 by bterral          ###   ########.fr       */
+/*   Updated: 2022/05/23 11:35:36 by bterral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ int	print_error(int code, char *str)
 		ft_dprintf(2, "%s: not a valid rgb format, value.\n", str);
 	else if (code == 8)
 		ft_dprintf(2, "First or last line are not full of walls\n", str);
+	else if (code == 9)
+		ft_dprintf(2, "Map must be surrounded by walls\n", str);
+	else if (code == 10)
+		ft_dprintf(2, "One and only one player must be placed on the map\n", str);
 	return (1);
 }
